@@ -8,6 +8,16 @@
                 </title>
                 <link href="style.css" rel="stylesheet">
                 </link>
+                <!-- font awsome  -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+                    <!-- google font -->
+                    <link href="https://fonts.googleapis.com" rel="preconnect">
+                        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+                            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+                            </link>
+                        </link>
+                    </link>
+                </link>
             </meta>
         </meta>
     </head>
@@ -58,7 +68,9 @@
                                     <label for="gender">
                                         Gender
                                     </label>
-                                    <select id="gender" name="gender">
+                                     <input class="p-input" id="gender" name="gender" placeholder="Type Gender" type="text">
+
+                                    <!-- <select id="gender" name="gender">
                                         <option value="male">
                                             Male
                                         </option>
@@ -68,13 +80,13 @@
                                         <option value="other">
                                             Other
                                         </option>
-                                    </select>
-                                    <label for="date">
+                                    </select> -->
+                                    <label class="label_date" for="date">
                                         Date
                                     </label>
                                     <input class="p-input" id="date" name="date" type="date">
-                                        <input type="submit" value="Submit">
-                                        </input>
+                                        <!-- <input type="submit" value="Submit">
+                                        </input> -->
                                     </input>
                                 </input>
                             </input>
@@ -86,21 +98,57 @@
                                         <label for="cc">
                                             Chief complaints
                                         </label>
-                                        <br><br>
-                                            <textarea cols="30" id="cc" name="cc" rows="10">
-                                            </textarea>
-                                        </br> <br>
-
-                                         <label for="oe">
-                                            O/E
-                                        </label>
                                         <br>
-                                            <textarea cols="30" id="cc" name="cc" rows="10">
-                                            </textarea>
+                                            <br>
+                                                <textarea cols="30" id="cc" name="cc" rows="10">
+                                                </textarea>
+                                            </br>
+                                            <br>
+                                                <label for="oe">
+                                                    O/E
+                                                </label>
+                                                <br>
+                                                    <textarea cols="30" id="cc" name="cc" rows="10">
+                                                    </textarea>
+                                                </br>
+                                            </br>
+                                             <label for="inv">
+                                                    Inv
+                                                </label>
+                                                <br>
+                                                    <textarea cols="30" id="cc" name="cc" rows="10">
+                                                    </textarea>
+                                                </br>
+                                            </br>
+                                             <label for="adv">
+                                                    Adv
+                                                </label>
+                                                <br>
+                                                    <textarea cols="30" id="cc" name="cc" rows="10">
+                                                    </textarea>
+                                                </br>
+                                            </br>
                                         </br>
                                     </div>
-                                    <div class="pmid">.</div>
+                                    <div class="pmid">
+                                        .
+                                    </div>
                                     <div class="p-right">
+                                        <h1>
+                                            Rx,
+                                        </h1>
+                                        <form action="">
+                                            <input id="text" name="text" type="text">
+                                                <button class="btn-list" type="submit">
+                                                    <i area-hidden="true" class="fa fa-plus">
+                                                    </i>
+                                                </button>
+                                            </input>
+                                        </form>
+                                        <div class="container">
+                                            <ul>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </hr>
@@ -111,5 +159,36 @@
         </main>
         <footer>
         </footer>
+        <script>
+            const inputText = document.querySelector('#text');
+            const myButton = document.querySelector('.btn-list');
+            const list = document.querySelector('.container ul');
+            myButton.addEventListener('click',(e)=>{
+                if(inputText.value != ""){
+                    e.preventDefault();
+                    // create Li
+                    const myLi = document.createElement('li');
+                    myLi.innerHTML = inputText.value;
+                    list.appendChild(myLi);
+
+                    // create span
+                    const mySpan = document.createElement('span');
+                    mySpan.innerHTML = '.';
+                    myLi.appendChild(mySpan);
+                }
+                const close = document.querySelectorAll('span');
+                for(let i=0; i<close.length; i++){
+                    close[i].addEventListener('click', ()=>{
+                        close[i].parentElement.style.opacity = 0;
+                        setTimeout(()=>{
+                             close[i].parentElement.style.display = "none";
+                             close[i].parentElement.remove;
+                        }, 150);
+                       
+                    })
+                }
+                inputText.value = "";
+            });
+        </script>
     </body>
 </html>
